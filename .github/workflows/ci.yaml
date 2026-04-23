@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Added permissions to allow the runner to push changes back to the repo
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout
@@ -41,4 +44,5 @@ jobs:
         git config user.email "actions@github.com"
         git add k8s/deployment.yaml
         git commit -m "Update image to ${{ github.ref_name }}"
-        git push
+        # Fix: Explicitly push the HEAD to the main branch
+        git push origin HEAD:main
