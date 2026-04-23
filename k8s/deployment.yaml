@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: gitops
-          image: devopsesewa/website:v1
+          image: devopsesewa/website:v1.3
           ports:
             - containerPort: 80
           imagePullPolicy: IfNotPresent
